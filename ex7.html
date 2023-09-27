@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ex7</title>
+</head>
+
+<body>
+
+    <h2>Valor do Carro Novo</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label">Custo de Fabrica:</label>
+                    <input class="form-control" id="custoFabrica">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label"> % do Distribuidor:</label>
+                <input class="form-control" id="percDistribuidor">
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label">% de Impostos:</label>
+                <input class="form-control" id="percImpostos">
+            </div>
+
+            <div class="col-md-1">
+                <button type="button" id="btncalcular" style="margin-top: 32px;" class="btn btn-primary"
+                    onclick="calcularValorFinal()">Calcular</button>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Valor Final</label>
+                <input class="form-control" id="valorfinal">
+            </div>
+
+        </div>
+    </div>
+
+    <!--Script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script>
+
+        function calcularValorFinal() {
+
+            let custoFabrica = Number.parseFloat(document.getElementById("custoFabrica").value)
+            let percDistribuidor = Number.parseFloat(document.getElementById("percDistribuidor").value) / 100
+            let percImpostos = Number.parseFloat(document.getElementById("percImpostos").value) / 100
+
+            let custofinal = custoFabrica + (custoFabrica * percDistribuidor) + (custoFabrica * percImpostos)
+
+            document.getElementById("valorfinal").value = custofinal
+
+        }
+
+
+    </script>
+</body>
+
+</html>
